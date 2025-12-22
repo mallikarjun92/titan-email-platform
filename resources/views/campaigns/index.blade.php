@@ -1,0 +1,66 @@
+@extends('layouts.app')
+@section('title', 'Campaigns')
+
+@section('content')
+<div class="flex items-center justify-between mb-8">
+    <h1>Campaigns</h1>
+
+    <a href="{{ route('campaigns.create') }}"
+       class="btn btn-primary">
+        New Campaign
+    </a>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="w-1/2">Campaign Name</th>
+                <th class="w-1/4 text-center">Status</th>
+                <th class="w-1/4 text-center">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        @forelse($campaigns as $campaign)
+            <tr>
+                <td>
+                    <div class="font-medium text-slate-800">
+                        {{ $campaign->name }}
+                    </div>
+                </td>
+
+                <td class="text-center">
+                    <span class="inline-flex items-center rounded-full
+                        px-3 py-1 text-xs font-medium
+                        {{ $campaign->status === 'sent'
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-slate-100 text-slate-600' }}">
+                        {{ ucfirst($campaign->status) }}
+                    </span>
+                </td>
+
+                <td class="text-center">
+                    <form method="POST"
+                          action="{{ route('campaigns.send', $campaign) }}">
+                        @csrf
+
+                        <button type="submit"
+                                class="btn btn-outline text-indigo-600 border-indigo-300
+                                hover:bg-indigo-50">
+                            Send
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="3" class="text-center text-slate-500 py-8">
+                    No campaigns created yet
+                </td>
+            </tr>
+        @endforelse
+        </tbody>
+    </table>
+</div>
+@endsection
