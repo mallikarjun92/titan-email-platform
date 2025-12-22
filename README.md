@@ -5,7 +5,7 @@
 ```
 2. Navigate to the project directory:
 ```
-   cd titan-email-mvp
+   cd titan-email-platform
 ```
 3. Install dependencies and set up the environment:
 ```
