@@ -11,16 +11,6 @@ use App\Models\Lead;
 
 class AnalyticsController extends Controller
 {
-    //
-    // public function index()
-    // {
-    //     return view('analytics.index', [
-    //         'totalSent' => EmailLog::count(),
-    //         'campaigns' => Campaign::withCount('emailLogs')->get(),
-    //         'accounts' => EmailAccount::all()
-    //     ]);
-    // }
-
     public function index()
     {
         return view('analytics.index', [

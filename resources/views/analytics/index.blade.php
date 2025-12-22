@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="text-2xl font-semibold mb-6">Analytics</h1>
 
-<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="grid grid-cols-2 gap-3 mb-4">
     <div class="card">
         <div class="card-body">
             <h3>Total Emails</h3>
