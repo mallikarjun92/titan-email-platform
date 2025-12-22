@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Analytics')
 
 @section('content')
 <h1 class="text-2xl font-semibold mb-6">Analytics</h1>
