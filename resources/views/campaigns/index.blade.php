@@ -40,19 +40,6 @@
                     </span>
                 </td>
 
-                {{-- <td class="text-center">
-                    <form method="POST"
-                          action="{{ route('campaigns.send', $campaign) }}">
-                        @csrf
-
-                        <button type="submit"
-                                class="btn btn-outline text-indigo-600 border-indigo-300
-                                hover:bg-indigo-50">
-                            Send
-                        </button>
-                    </form>
-                </td> --}}
-
                 <td class="text-center space-x-2">
                     <a href="{{ route('campaigns.edit', $campaign) }}"
                     class="text-indigo-600 hover:underline">
