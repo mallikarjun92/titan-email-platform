@@ -33,7 +33,7 @@ class LeadController extends Controller
             'name'       => 'required|string|max:255',
             'company'    => 'required|string|max:255',
             'website'    => 'required|url|max:255',
-            'email'      => 'requuired|email|max:255',
+            'email'      => 'required|email|max:255',
             'phone'      => 'required|string|max:20',
             'source_url' => 'nullable|url|max:255',
         ]);
