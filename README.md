@@ -1,11 +1,11 @@
 ## Setup
 1. Clone the repository:
 ```
-   git clone https://github.com/mallikarjun92/titan-email-platform.git
+git clone https://github.com/mallikarjun92/titan-email-platform.git
 ```
 2. Navigate to the project directory:
 ```
-   cd titan-email-platform
+cd titan-email-platform
 ```
 3. Install dependencies and set up the environment:
 ```
