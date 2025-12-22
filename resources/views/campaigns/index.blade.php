@@ -65,7 +65,8 @@
                         @csrf
                         <button
                             class="text-green-600 hover:underline"
-                            {{ $campaign->status === 'sent' ? 'disabled' : '' }}>
+                            {{ $campaign->status === 'sent' ? 'disabled' : '' }}
+                            style="cursor: pointer">
                             Send
                         </button>
                     </form>
@@ -77,7 +78,8 @@
                         @method('DELETE')
                         <button
                             class="text-red-600 hover:underline"
-                            onclick="return confirm('Delete this campaign?')">
+                            onclick="return confirm('Delete this campaign?')"
+                            style="cursor: pointer">
                             Delete
                         </button>
                     </form>

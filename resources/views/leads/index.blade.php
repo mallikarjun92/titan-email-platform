@@ -55,7 +55,7 @@
                         @csrf
                         @method('DELETE')
                         <button class="text-red-600 hover:underline"
-                                onclick="return confirm('Delete this lead?')">
+                                onclick="return confirm('Delete this lead?')" style="cursor: pointer">
                             Delete
                         </button>
                     </form>
