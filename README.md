@@ -1,7 +1,7 @@
 ## Setup
 1. Clone the repository:
 ```
-   git clone "url"
+   git clone https://github.com/mallikarjun92/titan-email-platform.git
 ```
 2. Navigate to the project directory:
 ```
