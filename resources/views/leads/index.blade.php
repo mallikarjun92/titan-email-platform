@@ -1,30 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="flex justify-between items-center mb-6">
-    <h1 class="text-2xl font-semibold">Leads</h1>
-    <a href="{{ route('leads.create') }}"
-       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Add Lead
-    </a>
-</div>
-
-<!-- Scrape Form -->
-<div class="bg-white p-6 rounded shadow mb-6">
-    <form method="POST" action="/leads/scrape" class="flex gap-4">
-        @csrf
-        <input type="url" name="website" required
-               placeholder="https://company-website.com"
-               class="flex-1 border rounded px-3 py-2">
-        <button class="bg-gray-800 text-white px-4 py-2 rounded">
-            Scrape
-        </button>
-    </form>
-</div>
-
-<!-- Leads Table -->
-<div class="bg-white rounded shadow overflow-x-auto">
-    <table class="w-full text-sm"> --}}
 
 <div class="flex justify-between items-center mb-6">
     <h1>Leads</h1>
@@ -55,6 +31,7 @@
                 <th class="p-3">Email</th>
                 <th class="p-3">Phone</th>
                 <th class="p-3">Website</th>
+                <th class="p-3 text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -65,6 +42,24 @@
                 <td class="p-3">{{ $lead->email }}</td>
                 <td class="p-3">{{ $lead->phone }}</td>
                 <td class="p-3">{{ $lead->website }}</td>
+
+                <td class="p-3 text-center space-x-2">
+                    <a href="{{ route('leads.edit', $lead) }}"
+                    class="text-indigo-600 hover:underline">
+                        Edit
+                    </a>
+
+                    <form method="POST"
+                        action="{{ route('leads.destroy', $lead) }}"
+                        class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button class="text-red-600 hover:underline"
+                                onclick="return confirm('Delete this lead?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

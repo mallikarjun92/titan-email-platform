@@ -16,7 +16,7 @@ Route::get('/', [DashboardController::class, 'index'])
 Route::resource('leads', LeadController::class);
 Route::post('/leads/scrape', [LeadController::class, 'scrape']);
 
-Route::resource('campaigns', CampaignController::class);
+Route::resource('campaigns', CampaignController::class)->except(['show']);
 Route::post('/campaigns/{campaign}/send', [CampaignController::class, 'send'])->name('campaigns.send');
 
 Route::get('/analytics', [AnalyticsController::class, 'index']);

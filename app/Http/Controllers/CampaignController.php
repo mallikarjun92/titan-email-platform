@@ -69,10 +69,37 @@ class CampaignController extends Controller
      */
     public function destroy(Campaign $campaign)
     {
+        $campaign->emailLogs()->delete();
         $campaign->delete();
 
         return redirect()
             ->route('campaigns.index')
             ->with('success', 'Campaign deleted');
+    }
+
+    /**
+     * Show edit form
+     */
+    public function edit(Campaign $campaign)
+    {
+        return view('campaigns.edit', compact('campaign'));
+    }
+
+    /**
+     * Update campaign
+     */
+    public function update(Request $request, Campaign $campaign)
+    {
+        $validated = $request->validate([
+            'name'    => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+            'body'    => 'required|string',
+        ]);
+
+        $campaign->update($validated);
+
+        return redirect()
+            ->route('campaigns.index')
+            ->with('success', 'Campaign updated successfully.');
     }
 }

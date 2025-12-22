@@ -40,7 +40,7 @@
                     </span>
                 </td>
 
-                <td class="text-center">
+                {{-- <td class="text-center">
                     <form method="POST"
                           action="{{ route('campaigns.send', $campaign) }}">
                         @csrf
@@ -49,6 +49,36 @@
                                 class="btn btn-outline text-indigo-600 border-indigo-300
                                 hover:bg-indigo-50">
                             Send
+                        </button>
+                    </form>
+                </td> --}}
+
+                <td class="text-center space-x-2">
+                    <a href="{{ route('campaigns.edit', $campaign) }}"
+                    class="text-indigo-600 hover:underline">
+                        Edit
+                    </a>
+
+                    <form method="POST"
+                        action="{{ route('campaigns.send', $campaign) }}"
+                        class="inline">
+                        @csrf
+                        <button
+                            class="text-green-600 hover:underline"
+                            {{ $campaign->status === 'sent' ? 'disabled' : '' }}>
+                            Send
+                        </button>
+                    </form>
+
+                    <form method="POST"
+                        action="{{ route('campaigns.destroy', $campaign) }}"
+                        class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            class="text-red-600 hover:underline"
+                            onclick="return confirm('Delete this campaign?')">
+                            Delete
                         </button>
                     </form>
                 </td>
