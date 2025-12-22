@@ -31,10 +31,10 @@ class LeadController extends Controller
     {
         $validated = $request->validate([
             'name'       => 'required|string|max:255',
-            'company'    => 'required|string|max:255',
-            'website'    => 'required|url|max:255',
-            'email'      => 'required|email|max:255',
-            'phone'      => 'required|string|max:20',
+            'company'    => 'nullable|string|max:255',
+            'website'    => 'nullable|url|max:255',
+            'email'      => 'nullable|email|max:255',
+            'phone'      => 'nullable|string|max:20',
             'source_url' => 'nullable|url|max:255',
         ]);
 
